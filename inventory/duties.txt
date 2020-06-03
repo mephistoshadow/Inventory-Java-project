@@ -1,0 +1,34 @@
+Our group number is 0131,We discussed the uml diagram together and divide the work into four parts.
+Jilong Bi:
+For this project,i created the Product class and the Cashier class.
+Product class contains all the information for the product stored in this store. Cashier class illustrates
+the duty of Cashier in this store.A cashier can scan the item, set certain product to sale and cancel product sale status.
+For scan part, Cashier can scan the item to sell this product or check this product sale period. The sale period is how many
+days this product is on sale.
+
+PuTe Li:
+For this project, i created the person and Receiver class and draw the uml diagram.
+Person class is the parent class of Cashier, Receiver, Manager and Reshelver.
+the duty of Receiver can scan product into the inventory. If the product already exist in inventory, the quantity of
+the product will increase by 1 unit. Else, it will add a new product into the system alone with its price, cost, upc
+and quantity.
+Receiver can view location, cost, price history, and current price of a product.
+
+siqi Yang:
+creat the Inventory,Reshelver,Location,shelf,Store,Main classes.
+My duty is to generate the initial inventory and sotre all the information about the store and update all imformations.create the event.txt file and command the system to do action and report these to log.txt files and handle how Store stores products on shelves.How to change the layout of the store and create the main method to simulate the program.
+
+Yichen Zhu(zhuyiche):
+I'm responsible for Order.java and Manager.java.
+Order.java contain methods to create new orders and generate two csv file: Pendingorder.csv which is sending to distributor,
+and OrderHistory.csv which can be viewed by Reshelver.
+For convenience, i assume that pending order will get process every time the program terminate. Therefore Pendingorder.csv will
+rewrite itself every time the program runs.
+
+Order can only be called by Cashier class if and only if the quantity in inventory of this product is less than its pre setting
+threshold. The distributor and quantity of order can be set manually.
+Since Order.java needs to write and read csv files, i wrote few methods in Order.java can be used for general purpose,such as
+methods to write and read csv file, write txt file, and generate file path automatically. I set these methods to static
+so that it can be used by other classes.
+
+Manager can view pending order by loading Pendingorder.csv, view daily profit and daily revenue in real time.

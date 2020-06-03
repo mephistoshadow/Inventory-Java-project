@@ -1,0 +1,112 @@
+The following is instructions to run this program.
+We have store all csv and txt file under ProjectPhase1 except the event file is under src/
+All java file are stored under src/
+
+Step 1: Open project on intellij, the project can be either open under IdeaProjects/group_0131
+or IdeaProjects/group_0131/ProjectPhase1, otherwise there would be FileNotFound error.
+
+Step 2: The Main.java is under src/, the project can be run by running Main.java.
+All program commands are stored in event, the Main.java will read event and record all responses
+correspondingly in log.txt file.
+
+Notes:
+All csv and txt files will get logged except Pendingorder.csv, which assuming the pending order will
+get processed event time the program run again and therefore reset itself every time.
+
+If markers want to create their own input file, please delete the original event file and name their
+file as event and put this event under src/ file.
+
+
+We list all commands can can be changed in event or make new event file below.
+Note that in order to execute commands, you have to login first, for instance, you have to login as
+manager so that you can view the daily profit and revenue. Otherwise the commands will not run properly.
+
+
+Every products has its particular threshold, when the quantity of this product is below its threshold,
+you are able to create new order to distributor.
+The system will ask "Do you want to set amount of quantity you need to order" in console, type yes or no only.
+Type yes to set your own amount, then type the amount you want to order,
+then type which distributor you want to order from.
+If you type no the program will create order using default amount, which is three times its threshold.
+and the default distributor is U of T.
+
+Both Cashier and Receiver can scan products. The quantity will change by one if scan is successfully been processed.
+
+Cashier:
+Cashiers can scan item out of inventory, set a product on sale or unSale, set the sale dates,
+and check for start and end date of any products.
+Enter "Cashier login" to log in the system as a Cashier.
+When Cashier want to Scan an product out of inventory(to sell this product).
+Enter "Cashier scan" + product upc + true
+
+For example:
+Cashier scan 123456789101 true
+
+If Cashier wants to check sale dates of a scanned item.
+Enter "Cashier scan" + product upc + false
+For example:
+Cashier scan 123456789101 false
+
+TO Cashier wants to set certain product on sale.
+Entering "Cashier setSale" + upc of the product + sale lasting length (How many days) + sale price.
+For example:
+Cashier setSale 123456789101 2 12
+
+To cashier wants to set certain product return unsale.
+Entering "Cashier setUnsale" + upc of the product
+For example:
+Cashier setUnsale 123456789101
+
+
+Receiver:
+Receiver will scan in new items into inventory and also scan new units of a pre-existing item.
+Receiver can also view location, cost, price history, and current price of a product.
+Entering "Receiver login" to log in the system as a Receiver.
+To Scan a product into the Inventory:
+If the product already exists in the inventory, enter "Receiver scan" + upc number for that product.
+
+For example:
+Receiver scan 136
+If the product is new to the store, enter "Receiver scan" + upc number + name of the product + cost
+of the product + price of the product + quantity want to add in the inventory + location of the product.
+
+For example:
+
+Receiver scan 123456789101 milk 0.83 1.99 114 product 1
+where 123456789101 is upc, 0.83 is the cost, 1.99 is the price, 114 is the quantity wants to add,
+and product 1 is the section name and shelf number (the location)
+
+To view products information, enter "Receiver view" + upc number.
+for example:
+Receiver view 123456789101
+Then Receiver will receive all information he may possible want to know.
+
+
+Reshelver:
+Reshelver can change layout in the store and view either location of products, order history,
+or the current quantity in store.
+Entering "Reshelver login" to log in the system as a Reshelver.
+
+If Reshelver want to reshelf certain two shelves.
+Entering "Reshelver reshelf" + Section name + two shelf number want to switch location.
+For example:
+Reshelver reshelf produce a b
+There are only three shelves in each section, their corresponding name is a, b and c.
+
+To view product location and quantity left6, enter "Reshelver view" + upc name.
+for example:
+Reshelver view 123456789101
+Then Receiver will receive all information he may possibly wants to know.
+To view order history.
+Enter "Reshelver orderhistory"
+
+
+Manager:
+Manager can view a list of pending orders, daily total sales (revenue) and daily total profit.
+Enter "Manager login" to log in the system as a manager.
+If Manager wants to view daily profit.
+Enter "Manager view Daily profit"
+If Manager wants to view daily revenue.
+Enter "Manager view Daily revenue"
+If Manager wants to view pending orders.
+Enter "Manager view pendingorder"
